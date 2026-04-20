@@ -49,12 +49,16 @@ jobs:
           type: full
 
       - name: Install jaspModuleTools
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           install.packages("remotes", repos = "https://cloud.r-project.org")
           remotes::install_github("jasp-stats/jaspModuleTools")
         shell: Rscript {0}
 
       - name: Build Module
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           jaspModuleTools::createJaspBundle(pkg = ".")
         shell: Rscript {0}

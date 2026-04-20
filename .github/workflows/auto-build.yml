@@ -60,14 +60,14 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          jaspModuleTools::createJaspBundle(pkg = ".")
+          jaspModuleTools::compile(".")
         shell: Rscript {0}
 
       - name: Upload Bundle Artifact
         uses: actions/upload-artifact@v4
         with:
           name: jasp-bundle-${{ matrix.os }}
-          path: ./**/*.jasp 
+          path: ./**/*.JASPModule
           if-no-files-found: error
 
   # New job to post the comment once both builds finish

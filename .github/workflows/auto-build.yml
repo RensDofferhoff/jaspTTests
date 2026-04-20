@@ -12,9 +12,8 @@ jobs:
   build:
     if: >
       github.event.issue.pull_request && 
-      trim(github.event.comment.body) == 'build' &&
+      startsWith(github.event.comment.body, 'build') &&
       contains(fromJson('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
-    
     strategy:
       matrix:
         os: [macos-14, windows-latest]

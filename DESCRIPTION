@@ -14,7 +14,7 @@ Imports:
   car,
   ggplot2,
   jaspBase,
-  jaspGraphs,
+  jaspGraphs, 
   logspline,
   plotrix,
   plyr

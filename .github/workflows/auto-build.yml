@@ -17,7 +17,7 @@ jobs:
       contains(fromJson('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
     
     # Calls the reusable workflow from your central repo
-    uses: jasp-stats/jasp-actions/.github/workflows/build-bundle.yml@main
+    uses: jasp-stats/jasp-actions/.github/workflows/build-bundle.yml@master
     
     # Passes the local repository's GITHUB_TOKEN down so the central action can comment and checkout code
     secrets: inherit
